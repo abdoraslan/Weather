@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/weather.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <title>Weather</title>
+</head>
+
+<body>
+    <div class="bg-black px-5">
+        <nav class="navbar bg-black py-3">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="" width="150" height="25">
+            </a>
+            <div class="search bg-dark rounded-pill d-flex align-items-center p-2">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="bg-dark border-0 text-light ms-2 w-100" type="search" placeholder="Search city...">
+            </div>
+            <button class="px-3 py-1 rounded-pill d-flex align-items-center" type="button">
+                <i class="fa-solid fa-location-crosshairs p-1 text-black"></i>
+                <span class="p-1 text-black">Current Location</span>
+            </button>
+        </nav>
+        <div class="content mt-4">
+            <div class="left">
+                <div class="first-card p-4 bg-dark w-25 rounded-4 mb-2">
+                    <h5>Now</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1  class="d-inline-flex align-items-center" style="font-size: 5em;">5&deg;<span style="font-size: .6em;">C</span></h1>
+                        <img height="60px" src="images/weather_icons/04d.png" alt="">
+                    </div>
+                    <h6>Broken Clouds</h6>
+                    <hr>
+                    <div class="mb-2">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span class="p-1 text-secondary">Wednesday 1,Mar</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span class="p-1 text-secondary">London, GB</span>
+                    </div>
+                </div>
+                <h6 class="mb-2">5 Days Forecast</h6>
+                <div class="second-card p-4 bg-dark w-25 rounded-4 d-flex flex-column row-gap-2">
+                    <div class=" d-flex">
+                        <div class="col-5">
+                            <img height="30px" src="images/weather_icons/01n.png" alt="">
+                            <span>7&deg;</span>
+                        </div>
+                        <span class="text-secondary col-4">2 Mar</span>
+                        <span class="text-secondary  col-3">Thursday</span>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-5">
+                            <img height="30px" src="images/weather_icons/01n.png" alt="">
+                            <span>7&deg;</span>
+                        </div>
+                        <span class="text-secondary col-4">3 Mar</span>
+                        <span class="text-secondary col-3">Friday</span>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-5">
+                            <img height="30px" src="images/weather_icons/04d.png" alt="">
+                            <span>7&deg;</span>
+                        </div>
+                        <span class="text-secondary col-4">4 Mar</span>
+                        <span class="text-secondary col-3">Saturday</span>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-5">
+                            <img height="30px" src="images/weather_icons/10n.png" alt="">
+                            <span>7&deg;</span>
+                        </div>
+                        <span class="text-secondary col-4">5 Mar</span>
+                        <span class="text-secondary col-3">Sunday</span>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-5">
+                            <img height="30px" src="images/weather_icons/04d.png" alt="">
+                            <span>7&deg;</span>
+                        </div>
+                        <span class="text-secondary col-4">6 Mar</span>
+                        <span class="text-secondary col-3">Monday</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+
+</html>

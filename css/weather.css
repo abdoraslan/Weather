@@ -1,0 +1,18 @@
+
+* {
+    color : white
+}
+
+input {
+    outline: none;
+}
+
+.search {
+    width: 25em;
+}
+
+button {
+    background-color: #B5A1E3;
+    border:none;
+}
+
