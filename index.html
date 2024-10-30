@@ -27,9 +27,9 @@
                 <span class="p-1 text-black">Current Location</span>
             </button>
         </nav>
-        <div class="content mt-4">
+        <div class="content mt-4 d-flex justify-content-between">
             <div class="left">
-                <div class="first-card p-4 bg-dark w-25 rounded-4 mb-2">
+                <div class="first-card p-4 bg-dark rounded-4 mb-2">
                     <h5>Now</h5>
                     <div class="d-flex justify-content-between align-items-center">
                         <h1  class="d-inline-flex align-items-center" style="font-size: 5em;">5&deg;<span style="font-size: .6em;">C</span></h1>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <h6 class="mb-2">5 Days Forecast</h6>
-                <div class="second-card p-4 bg-dark w-25 rounded-4 d-flex flex-column row-gap-2">
+                <div class="second-card p-4 bg-dark rounded-4 d-flex flex-column row-gap-2">
                     <div class=" d-flex">
                         <div class="col-5">
                             <img height="30px" src="images/weather_icons/01n.png" alt="">
@@ -90,6 +90,102 @@
                     </div>
                 </div>
             </div>
+            <div class="right">
+                <div class="third-card p-4 bg-dark rounded-4 mb-2">
+                    <h6>Todays Highlights</h6>
+                    <div class="d-flex column-gap-2 row-gap-2 flex-wrap justify-content-center">
+                        <div style="width: 25.5em;" class="bg-black rounded-4 p-3">
+                            <div class="d-flex justify-content-between mb-4">
+                                <p class="text-secondary">Air Quality Index</p>
+                                <span style="background-color: #9FE49D; height: 20px;" class="d-inline-flex align-items-center rounded-pill text-success px-3 py-3">Good</span>
+                            </div>
+                            <div class="d-flex justify-content-evenly align-items-center">
+                                <i class="fa-solid fa-wind fs-2"></i>
+                                <div>
+                                    <h6 class="text-secondary text-center">PM2.5</h6>
+                                    <h2>3.90</h2>
+                                </div>
+                                <div>
+                                    <h6 class="text-secondary text-center">SO₂</h6>
+                                    <h2>7.75</h2>
+                                </div>
+                                <div>
+                                    <h6 class="text-secondary text-center">NO₂</h6>
+                                    <h2>33.6</h2>
+                                </div>
+                                <div>
+                                    <h6 class="text-secondary text-center">O₃</h6>
+                                    <h2>38.6</h2>
+                                </div> 
+                            </div>
+                        </div>
+                        <div style="width: 25.5em;" class="bg-black rounded-4 p-3">
+                            <p class="text-secondary mb-4">Sunrise & Sunset</p>
+                            <div class="d-flex justify-content-evenly align-items-center">
+                                <i class="fa-regular fa-sun fs-2"></i>
+                                <div>
+                                    <h6 class="text-secondary">Sunrise</h6>
+                                    <div class="d-flex column-gap-2 align-items-center">
+                                        <h2>6:46</h2>
+                                        <h2>AM</h2>
+                                    </div>
+                                </div>
+                                <i class="fa-regular fa-moon fs-2"></i>
+                                <div>
+                                    <h6 class="text-secondary">Sunset</h6>
+                                    <div class="d-flex column-gap-2 align-items-center">
+                                        <h2>5:39</h2>
+                                        <h2>PM</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 12.5em;" class="bg-black rounded-4 p-3">
+                            <h6 class="text-secondary mb-5">Humidity</h6>
+                            <div class="d-flex column-gap-5 justify-content-between">
+                                <i class="fas fa-tint fs-2"></i>
+                                <div class="d-flex ">
+                                    <h2>82</h2>
+                                    <h5 class="align-self-end">%</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 12.5em;"  class="bg-black rounded-4 p-3">
+                            <h6 class="text-secondary mb-5">Pressure</h6>
+                            <div class="d-flex column-gap-5 justify-content-between">
+                                <i class="fas fa-gauge fs-2"></i>
+                                <div class="d-flex ">
+                                    <h2>1025</h2>
+                                    <h5 class="align-self-end">hPa</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 12.5em;" class="bg-black rounded-4 p-3">
+                            <h6 class="text-secondary mb-5">Visibility</h6>
+                            <div class="d-flex column-gap-5 justify-content-between">
+                                <i class="fa-solid fa-eye fs-2"></i>
+                                <div class="d-flex ">
+                                    <h2>10</h2>
+                                    <h5 class="align-self-end">km</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 12.5em;" class="bg-black rounded-4 p-3">
+                            <h6 class="text-secondary mb-5">Feels Like</h6>
+                            <div class="d-flex column-gap-5 justify-content-between">
+                                <i class="fa-solid fa-temperature-three-quarters fs-2"></i>                                <div class="d-flex ">
+                                    <h2>2</h2>
+                                    <h5 class="align-self-center">&deg;c</h5>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                </div>
+                <h6 class="mb-2">Today at</h6>
+            </div>
+            
         </div>
 
     </div>

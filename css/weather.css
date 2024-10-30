@@ -3,6 +3,10 @@
     color : white
 }
 
+body {
+    overflow-x: hidden;
+}
+
 input {
     outline: none;
 }
@@ -16,3 +20,10 @@ button {
     border:none;
 }
 
+.left {
+    width: 20em;
+}
+
+.right {
+    width: 55em;
+}
