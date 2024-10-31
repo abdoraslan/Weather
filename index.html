@@ -14,20 +14,34 @@
 
 <body>
     <div class="bg-black px-5">
-        <nav class="navbar bg-black py-3">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" alt="" width="150" height="25">
+        <nav class="navbar bg-black px-5 py-3 fixed-top w-100" style="z-index: 1000;"">
+            <a class=" navbar-brand" href="#">
+            <img src="images/logo.png" alt="" width="150" height="25">
             </a>
-            <div class="search bg-dark rounded-pill d-flex align-items-center p-2">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input class="bg-dark border-0 text-light ms-2 w-100" type="search" placeholder="Search city...">
+            <div class="search bg-dark rounded-pill d-flex align-items-center p-2 position-relative">
+                <i style="width: 5%;" class="fa-solid fa-magnifying-glass"></i>
+                <input style="width: 85%;" class="bg-dark border-0 text-light ms-2" type="text"
+                    placeholder="Search city...">
+                <div style="width: 5%; transform: translateY(-12px);" id="lds-ring" class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="suggestions position-absolute rounded-4 w-100 top-100 start-0 bg-dark p-3">
+                    <h6>Suez</h6>
+                    <h6>Suez</h6>
+                    <h6>Suez</h6>
+                    <h6>Suez</h6>
+                    <h6>Suez</h6>
+                </div>
             </div>
             <button class="px-3 py-1 rounded-pill d-flex align-items-center" type="button">
                 <i class="fa-solid fa-location-crosshairs p-1 text-black"></i>
                 <span class="p-1 text-black">Current Location</span>
             </button>
         </nav>
-        <div class="content mt-4 d-flex justify-content-between">
+        <div style="padding-top: 6em;" class="content d-flex justify-content-between">
             <div class="left">
                 <div class="first-card p-4 bg-dark rounded-4 mb-2">
                     <h5>Now</h5>
@@ -76,7 +90,7 @@
                     <div class=" d-flex">
                         <div class="col-5">
                             <img height="30px" src="images/weather_icons/10n.png" alt="">
-                            <span>7&deg;</span>
+                            <span>6&deg;</span>
                         </div>
                         <span class="text-secondary col-4">5 Mar</span>
                         <span class="text-secondary col-3">Sunday</span>
@@ -84,7 +98,7 @@
                     <div class="d-flex">
                         <div class="col-5">
                             <img height="30px" src="images/weather_icons/04d.png" alt="">
-                            <span>7&deg;</span>
+                            <span>6&deg;</span>
                         </div>
                         <span class="text-secondary col-4">6 Mar</span>
                         <span class="text-secondary col-3">Monday</span>
@@ -340,15 +354,11 @@
                             src="images/weather_icons/direction.png" alt="">
                         <h6>12 km/h</h6>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </body>
-
+<script src="js/weather.js"></script>
 
 </html>
