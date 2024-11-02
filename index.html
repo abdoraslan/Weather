@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="bg-black px-5">
+    <div class="bg-black px-5 pb-4">
         <nav class="navbar bg-black px-5 py-3 fixed-top w-100" style="z-index: 1000;"">
             <a class=" navbar-brand" href="#">
             <img src="images/logo.png" alt="" width="150" height="25">
@@ -37,7 +37,7 @@
                 <span class="p-1 text-black">Current Location</span>
             </button>
         </nav>
-        <div style="padding-top: 6em;" class="content d-flex justify-content-between">
+        <div style="padding-top: 6em;" class="content d-flex justify-content-between column-gap-4">
             <div class="left">
                 <div id="first-card" class="first-card p-4 bg-dark rounded-4 mb-2">
                 </div>
@@ -47,10 +47,10 @@
                 </div>
             </div>
             <div class="right">
-                <div class="third-card p-4 bg-dark rounded-4 mb-2">
+                <div class="h-100 third-card p-4 bg-dark rounded-4 mb-2">
                     <h6>Todays Highlights</h6>
-                    <div class="d-flex column-gap-2 row-gap-2 flex-wrap justify-content-center">
-                        <div style="width: 25.5em;" class="bg-black rounded-4 p-3">
+                    <div class="  d-flex column-gap-2 row-gap-2 flex-wrap justify-content-center">
+                        <div style="width: 48.5%;" class="bg-black rounded-4 p-3">
                             <div class="d-flex justify-content-between mb-4">
                                 <p class="text-secondary">Air Quality Index</p>
                                 <span style="background-color: #9FE49D; height: 20px;"
@@ -76,9 +76,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="width: 25.5em;" class="bg-black rounded-4 p-3">
+                        <div style="width: 48.5%;" class="bg-black rounded-4 p-3">
                             <p class="text-secondary mb-4">Sunrise & Sunset</p>
-                            <div class="d-flex justify-content-evenly align-items-center">
+                            <div class="d-flex justify-content-around align-items-center">
                                 <i class="fa-regular fa-sun fs-2"></i>
                                 <div>
                                     <h6 class="text-secondary">Sunrise</h6>
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="width: 12.5em;" class="bg-black rounded-4 p-3">
+                        <div style="width: 48.5%;" class="bg-black rounded-4 p-3">
                             <h6 class="text-secondary mb-5">Humidity</h6>
                             <div class="d-flex column-gap-5 justify-content-between">
                                 <i class="fas fa-tint fs-2"></i>
@@ -105,7 +105,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="width: 12.5em;" class="bg-black rounded-4 p-3">
+                        <div style="width: 48.5%;" class="bg-black rounded-4 p-3">
                             <h6 class="text-secondary mb-5">Pressure</h6>
                             <div class="d-flex column-gap-5 justify-content-between">
                                 <i class="fas fa-gauge fs-2"></i>
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="width: 12.5em;" class="bg-black rounded-4 p-3">
+                        <div style="width: 48.5%;" class="bg-black rounded-4 p-3">
                             <h6 class="text-secondary mb-5">Visibility</h6>
                             <div class="d-flex column-gap-5 justify-content-between">
                                 <i class="fa-solid fa-eye fs-2"></i>
@@ -125,7 +125,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="width: 12.5em;" class="bg-black rounded-4 p-3">
+                        <div style="width: 48.5%;" class="bg-black rounded-4 p-3">
                             <h6 class="text-secondary mb-5">Feels Like</h6>
                             <div class="d-flex column-gap-5 justify-content-between">
                                 <i class="fa-solid fa-temperature-three-quarters fs-2"></i>
@@ -135,165 +135,8 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-                </div>
-                <h6 class="mb-2">Today at</h6>
-                <div class="d-flex flex-wrap column-gap-2 row-gap-2 ">
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center p-3 row-gap-2 ">
-                        <div class="d-flex column-gap-2">
-                            <h6>9</h6>
-                            <h6>PM</h6>
-                        </div>
-                        <img class="mb-2" height="40px" width="40px" src="images/weather_icons/04d.png" alt="">
-                        <h6>5&deg;</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center p-3 row-gap-2 ">
-                        <div class="d-flex column-gap-2">
-                            <h6>12</h6>
-                            <h6>AM</h6>
-                        </div>
-                        <img class="mb-2" height="40px" width="40px" src="images/weather_icons/04d.png" alt="">
-                        <h6>4&deg;</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>3</h6>
-                            <h6>AM</h6>
-                        </div>
-                        <img class="mb-2" height="40px" width="40px" src="images/weather_icons/03d.png" alt="">
-                        <h6>3&deg;</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>6</h6>
-                            <h6>AM</h6>
-                        </div>
-                        <img class="mb-2" height="40px" width="40px" src="images/weather_icons/01n.png" alt="">
-                        <h6>1&deg;</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>9</h6>
-                            <h6>AM</h6>
-                        </div>
-                        <img class="mb-2" height="40px" width="40px" src="images/weather_icons/01d.png" alt="">
-                        <h6>4&deg;</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>12</h6>
-                            <h6>PM</h6>
-                        </div>
-                        <img class="mb-2" height="40px" width="40px" src="images/weather_icons/01d.png" alt="">
-                        <h6>8&deg;</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>3</h6>
-                            <h6>PM</h6>
-                        </div>
-                        <img class="mb-2" height="40px" width="40px" src="images/weather_icons/01d.png" alt="">
-                        <h6>9&deg;</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>6</h6>
-                            <h6>PM</h6>
-                        </div>
-                        <img class="mb-2" height="40px" width="40px" src="images/weather_icons/01n.png" alt="">
-                        <h6>7&deg;</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>9</h6>
-                            <h6>PM</h6>
-                        </div>
-                        <img style="transform: rotate(230deg);" class="mb-2 rotate-me" height="40px" width="40px"
-                            src="images/weather_icons/direction.png" alt="">
-                        <h6>9 km/h</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>12</h6>
-                            <h6>AM</h6>
-                        </div>
-                        <img style="transform: rotate(207deg);" class="mb-2 rotate-me" height="40px" width="40px"
-                            src="images/weather_icons/direction.png" alt="">
-                        <h6>6 km/h</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>3</h6>
-                            <h6>AM</h6>
-                        </div>
-                        <img style="transform: rotate(207deg);" class="mb-2 rotate-me" height="40px" width="40px"
-                            src="images/weather_icons/direction.png" alt="">
-                        <h6>8 km/h</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>6</h6>
-                            <h6>AM</h6>
-                        </div>
-                        <img style="transform: rotate(205deg);" class="mb-2 rotate-me" height="40px" width="40px"
-                            src="images/weather_icons/direction.png" alt="">
-                        <h6>10 km/h</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>9</h6>
-                            <h6>AM</h6>
-                        </div>
-                        <img style="transform: rotate(225deg);" class="mb-2 rotate-me" height="40px" width="40px"
-                            src="images/weather_icons/direction.png" alt="">
-                        <h6>13 km/h</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>12</h6>
-                            <h6>PM</h6>
-                        </div>
-                        <img style="transform: rotate(230deg);" class="mb-2 rotate-me" height="40px" width="40px"
-                            src="images/weather_icons/direction.png" alt="">
-                        <h6>14 km/h</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>3</h6>
-                            <h6>PM</h6>
-                        </div>
-                        <img style="transform: rotate(220deg);" class="mb-2 rotate-me" height="40px" width="40px"
-                            src="images/weather_icons/direction.png" alt="">
-                        <h6>15 km/h</h6>
-                    </div>
-                    <div style="width: 6.4em;"
-                        class="bg-dark rounded-4 d-flex flex-column align-items-center row-gap-2 p-3">
-                        <div class="d-flex column-gap-2">
-                            <h6>6</h6>
-                            <h6>PM</h6>
-                        </div>
-                        <img style="transform: rotate(210deg);" class="mb-2 rotate-me" height="40px" width="40px"
-                            src="images/weather_icons/direction.png" alt="">
-                        <h6>12 km/h</h6>
-                    </div>
-                </div>
+                </div>              
             </div>
         </div>
     </div>

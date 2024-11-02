@@ -17,6 +17,9 @@ function successCallback(position) {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latLot.latitude}&lon=${latLot.longitude}&units=metric&appid=${your_api}`
     const url_air = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${latLot.latitude}&lon=${latLot.longitude}&appid=${your_api}`
     const url_forcast = `https://api.openweathermap.org/data/2.5/forecast?lat=${latLot.latitude}&lon=${latLot.longitude}&units=metric&appid=${your_api}`
+    const url_daily = `https://api.openweathermap.org/data/2.5/onecall?lat=${latLot.latitude}&lon=${latLot.longitude}&exclude=current,minutely,daily&appid=${your_api}&units=metric`
+
+
     axios.get(url)
         .then(function (response) {
             let data = response.data
@@ -84,8 +87,6 @@ function successCallback(position) {
             let thirdDay = data.list[21]
             let fourthDay = data.list[29]
             let fifthDay = data.list[37]
-            let time = fifthDay.dt
-            console.log(time)
             document.getElementById("second-card").innerHTML = `<div class=" d-flex">
                         <div class="col-5">
                             <img height="30px" src="${getIcon(firstDay.weather[0].icon)}" alt="">
@@ -132,6 +133,17 @@ function successCallback(position) {
         .catch(function (error) {
             console.log(error);
         })
+
+        axios.get(url_daily)
+        .then(function (response) {
+            let data = response.data
+            console.log(data)
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        
 }
 
 function errorCallback(error) {
