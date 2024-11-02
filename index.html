@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
     <title>Weather</title>
 </head>
 
@@ -20,7 +21,7 @@
             </a>
             <div class="search bg-dark rounded-pill d-flex align-items-center p-2 position-relative">
                 <i style="width: 5%;" class="fa-solid fa-magnifying-glass"></i>
-                <input style="width: 85%;" class="bg-dark border-0 text-light ms-2" type="text"
+                <input id="input" style="width: 85%;" class="bg-dark border-0 text-light ms-2" type="text"
                     placeholder="Search city...">
                 <div style="width: 5%; transform: translateY(-12px);" id="lds-ring" class="lds-ring">
                     <div></div>
@@ -28,12 +29,7 @@
                     <div></div>
                     <div></div>
                 </div>
-                <div class="suggestions position-absolute rounded-4 w-100 top-100 start-0 bg-dark p-3">
-                    <h6>Suez</h6>
-                    <h6>Suez</h6>
-                    <h6>Suez</h6>
-                    <h6>Suez</h6>
-                    <h6>Suez</h6>
+                <div id="suggestions" class="suggestions position-absolute rounded-4 w-100 top-100 start-0 bg-dark p-3">
                 </div>
             </div>
             <button class="px-3 py-1 rounded-pill d-flex align-items-center" type="button">
@@ -43,66 +39,11 @@
         </nav>
         <div style="padding-top: 6em;" class="content d-flex justify-content-between">
             <div class="left">
-                <div class="first-card p-4 bg-dark rounded-4 mb-2">
-                    <h5>Now</h5>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h1 class="d-inline-flex align-items-center" style="font-size: 5em;">5&deg;<span
-                                style="font-size: .6em;">C</span></h1>
-                        <img height="60px" src="images/weather_icons/04d.png" alt="">
-                    </div>
-                    <h6>Broken Clouds</h6>
-                    <hr>
-                    <div class="mb-2">
-                        <i class="fa-regular fa-calendar"></i>
-                        <span class="p-1 text-secondary">Wednesday 1,Mar</span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span class="p-1 text-secondary">London, GB</span>
-                    </div>
+                <div id="first-card" class="first-card p-4 bg-dark rounded-4 mb-2">
                 </div>
                 <h6 class="mb-2">5 Days Forecast</h6>
-                <div class="second-card p-4 bg-dark rounded-4 d-flex flex-column row-gap-2">
-                    <div class=" d-flex">
-                        <div class="col-5">
-                            <img height="30px" src="images/weather_icons/01n.png" alt="">
-                            <span>7&deg;</span>
-                        </div>
-                        <span class="text-secondary col-4">2 Mar</span>
-                        <span class="text-secondary  col-3">Thursday</span>
-                    </div>
-                    <div class="d-flex">
-                        <div class="col-5">
-                            <img height="30px" src="images/weather_icons/01n.png" alt="">
-                            <span>7&deg;</span>
-                        </div>
-                        <span class="text-secondary col-4">3 Mar</span>
-                        <span class="text-secondary col-3">Friday</span>
-                    </div>
-                    <div class="d-flex">
-                        <div class="col-5">
-                            <img height="30px" src="images/weather_icons/04d.png" alt="">
-                            <span>7&deg;</span>
-                        </div>
-                        <span class="text-secondary col-4">4 Mar</span>
-                        <span class="text-secondary col-3">Saturday</span>
-                    </div>
-                    <div class=" d-flex">
-                        <div class="col-5">
-                            <img height="30px" src="images/weather_icons/10n.png" alt="">
-                            <span>6&deg;</span>
-                        </div>
-                        <span class="text-secondary col-4">5 Mar</span>
-                        <span class="text-secondary col-3">Sunday</span>
-                    </div>
-                    <div class="d-flex">
-                        <div class="col-5">
-                            <img height="30px" src="images/weather_icons/04d.png" alt="">
-                            <span>6&deg;</span>
-                        </div>
-                        <span class="text-secondary col-4">6 Mar</span>
-                        <span class="text-secondary col-3">Monday</span>
-                    </div>
+                <div id="second-card" class="second-card p-4 bg-dark rounded-4 d-flex flex-column row-gap-2">
+                    
                 </div>
             </div>
             <div class="right">
@@ -116,22 +57,22 @@
                                     class="d-inline-flex align-items-center rounded-pill text-success px-3 py-3">Good</span>
                             </div>
                             <div class="d-flex justify-content-evenly align-items-center">
-                                <i class="fa-solid fa-wind fs-2"></i>
-                                <div>
+                                <i class="fa-solid fa-wind fs-2 me-3"></i>
+                                <div class="me-1">
                                     <h6 class="text-secondary text-center">PM2.5</h6>
-                                    <h2>3.90</h2>
+                                    <h2 id="pm2.5"></h2>
                                 </div>
-                                <div>
+                                <div class="me-1">
                                     <h6 class="text-secondary text-center">SO₂</h6>
-                                    <h2>7.75</h2>
+                                    <h2 id="so2"></h2>
                                 </div>
-                                <div>
+                                <div class="me-1">
                                     <h6 class="text-secondary text-center">NO₂</h6>
-                                    <h2>33.6</h2>
+                                    <h2 id="no2"></h2>
                                 </div>
-                                <div>
+                                <div class="me-1">
                                     <h6 class="text-secondary text-center">O₃</h6>
-                                    <h2>38.6</h2>
+                                    <h2 id="o3"></h2>
                                 </div>
                             </div>
                         </div>
@@ -141,17 +82,15 @@
                                 <i class="fa-regular fa-sun fs-2"></i>
                                 <div>
                                     <h6 class="text-secondary">Sunrise</h6>
-                                    <div class="d-flex column-gap-2 align-items-center">
-                                        <h2>6:46</h2>
-                                        <h2>AM</h2>
+                                    <div class="">
+                                        <h2 id="sunrise"></h2>
                                     </div>
                                 </div>
                                 <i class="fa-regular fa-moon fs-2"></i>
                                 <div>
                                     <h6 class="text-secondary">Sunset</h6>
-                                    <div class="d-flex column-gap-2 align-items-center">
-                                        <h2>5:39</h2>
-                                        <h2>PM</h2>
+                                    <div class="">
+                                        <h2 id="sunset"></h2>
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +100,7 @@
                             <div class="d-flex column-gap-5 justify-content-between">
                                 <i class="fas fa-tint fs-2"></i>
                                 <div class="d-flex ">
-                                    <h2>82</h2>
+                                    <h2 id="humidity"></h2>
                                     <h5 class="align-self-end">%</h5>
                                 </div>
                             </div>
@@ -171,7 +110,7 @@
                             <div class="d-flex column-gap-5 justify-content-between">
                                 <i class="fas fa-gauge fs-2"></i>
                                 <div class="d-flex ">
-                                    <h2>1025</h2>
+                                    <h2 id="pressure"></h2>
                                     <h5 class="align-self-end">hPa</h5>
                                 </div>
                             </div>
@@ -181,7 +120,7 @@
                             <div class="d-flex column-gap-5 justify-content-between">
                                 <i class="fa-solid fa-eye fs-2"></i>
                                 <div class="d-flex ">
-                                    <h2>10</h2>
+                                    <h2 id="visibility"></h2>
                                     <h5 class="align-self-end">km</h5>
                                 </div>
                             </div>
@@ -191,7 +130,7 @@
                             <div class="d-flex column-gap-5 justify-content-between">
                                 <i class="fa-solid fa-temperature-three-quarters fs-2"></i>
                                 <div class="d-flex ">
-                                    <h2>2</h2>
+                                    <h2 id="feels"></h2>
                                     <h5 class="align-self-center">&deg;c</h5>
                                 </div>
                             </div>

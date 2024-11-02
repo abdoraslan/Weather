@@ -5,6 +5,7 @@
 
 body {
     overflow-x: hidden;
+    text-transform: capitalize;
 }
 
 input {
@@ -71,12 +72,6 @@ button {
     margin-top:1px;
 }
 
-.suggestions h6 {
-    padding: .2em .5em;
-    color: grey;
-    cursor: pointer;
-}
-
-.suggestions h6:hover {
-    background-color: rgb(223, 209, 209)
+.suggestions div:hover {
+    background-color: rgb(221, 206, 206)
 }
