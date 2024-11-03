@@ -2,21 +2,17 @@
 const loader = document.getElementById("lds-ring")
 loader.style.display = "none"
 
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-} else {
-    alert("Geolocation is not supported by this browser.");
-}
+
 
 function successCallback(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    localStorage.setItem("lat", latitude)
-    localStorage.setItem("lon", longitude)
+    
     // Fetch the weather data for the current location
     fetchWeatherData(latitude, longitude);
 }
 
+fetchWeatherData(51.509865, -0.118092);
 
 function fetchWeatherData(latitude, longitude) {
     const your_api = "242e39817553bc0d994fc04f72ab39aa"
@@ -74,7 +70,6 @@ function fetchWeatherData(latitude, longitude) {
         .then(function (response) {
             let index = response.data.list[0].main.aqi
             let quality = document.getElementById("quality");
-
             if (index >= 0 && index <= 50) {
                 quality.innerHTML = "Good";
                 quality.style.backgroundColor = "#28a745";  // Green
@@ -239,7 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             const response = await axios.get(url);
-            console.log(response.data)
             return response.data;
         } catch (error) {
             console.error("Error fetching city suggestions", error);
@@ -330,8 +324,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById("current").addEventListener("click", function () {
 
-    let lat = localStorage.getItem("lat")
-    let lon = localStorage.getItem("lon")
-    fetchWeatherData(lat, lon)
-
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
 })
