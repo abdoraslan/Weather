@@ -68,6 +68,36 @@ function successCallback(position) {
 
     axios.get(url_air)
         .then(function (response) {
+            console.log(response.data.list[0].main.aqi)
+            let index = response.data.list[0].main.aqi
+            let quality = document.getElementById("quality");
+
+            if (index >= 0 && index <= 50) {
+                quality.innerHTML = "Good";
+                quality.style.backgroundColor = "#28a745";  // Green
+                quality.style.color = "#2bcf4a";  // Slightly brighter green
+            } else if (index > 50 && index <= 100) {
+                quality.innerHTML = "Fair";
+                quality.style.backgroundColor = "#ffeb3b";  // Yellow
+                quality.style.color = "#f0db28";  // Slightly darker yellow
+            } else if (index > 100 && index <= 150) {
+                quality.innerHTML = "Moderate";
+                quality.style.backgroundColor = "#ff9800";  // Orange
+                quality.style.color = "#ff8c00";  // Slightly darker orange
+            } else if (index > 150 && index <= 200) {
+                quality.innerHTML = "Poor";
+                quality.style.backgroundColor = "#f44336";  // Red
+                quality.style.color = "#e53935";  // Slightly darker red
+            } else if (index > 200 && index <= 300) {
+                quality.innerHTML = "Very Poor";
+                quality.style.backgroundColor = "#9c27b0";  // Purple
+                quality.style.color = "#8e24aa";  // Slightly darker purple
+            } else if (index > 300) {
+                quality.innerHTML = "Hazardous";
+                quality.style.backgroundColor = "#6d1f00";  // Dark Maroon
+                quality.style.color = "#5c1a00";  // Slightly darker maroon
+            }
+                
             let data = response.data.list[0].components
             document.getElementById("pm2.5").innerHTML = data.pm2_5
             document.getElementById("so2").innerHTML = data.so2
@@ -128,16 +158,6 @@ function successCallback(position) {
                         <span class="text-secondary  col-3">${extractDate(fifthDay).weekday}</span>
                     </div>
             `
-
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-
-        axios.get(url_daily)
-        .then(function (response) {
-            let data = response.data
-            console.log(data)
 
         })
         .catch(function (error) {
