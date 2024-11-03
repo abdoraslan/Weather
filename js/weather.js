@@ -11,9 +11,10 @@ if (navigator.geolocation) {
 function successCallback(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-   
+    localStorage.setItem("lat", latitude)
+    localStorage.setItem("lon", longitude)
     // Fetch the weather data for the current location
-    fetchWeatherData(latitude,longitude);
+    fetchWeatherData(latitude, longitude);
 }
 
 
@@ -71,7 +72,6 @@ function fetchWeatherData(latitude, longitude) {
 
     axios.get(url_air)
         .then(function (response) {
-            console.log(response.data.list[0].main.aqi)
             let index = response.data.list[0].main.aqi
             let quality = document.getElementById("quality");
 
@@ -100,7 +100,7 @@ function fetchWeatherData(latitude, longitude) {
                 quality.style.backgroundColor = "#6d1f00";  // Dark Maroon
                 quality.style.color = "#5c1a00";  // Slightly darker maroon
             }
-                
+
             let data = response.data.list[0].components
             document.getElementById("pm2.5").innerHTML = data.pm2_5
             document.getElementById("so2").innerHTML = data.so2
@@ -166,7 +166,7 @@ function fetchWeatherData(latitude, longitude) {
         .catch(function (error) {
             console.log(error);
         })
-        
+
 }
 
 function errorCallback(error) {
@@ -199,7 +199,7 @@ function getIcon(icon) {
     return iconUrl
 }
 
-function extractDate(day){
+function extractDate(day) {
     let unix_timestamp = day.dt;
     let date = new Date(unix_timestamp * 1000); // Convert Unix timestamp to milliseconds
 
@@ -215,9 +215,123 @@ function extractDate(day){
     // Format the full date as needed
     let formattedDate = `${dayOfMonth} ${month}`; // e.g., 2 Mar
 
-   let fullDate = {}
-   fullDate.formattedDate = formattedDate
-   fullDate.weekday = weekday  
-   return fullDate
-  
+    let fullDate = {}
+    fullDate.formattedDate = formattedDate
+    fullDate.weekday = weekday
+    return fullDate
+
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const inputField = document.getElementById("input");
+    const suggestionsBox = document.getElementById("suggestions");
+    const loader = document.getElementById("lds-ring");
+
+    // Hide loader and suggestionsBox initially
+    loader.style.display = "none";
+    suggestionsBox.style.display = "none";
+
+    // Function to fetch city suggestions
+    async function fetchCitySuggestions(query) {
+        const apiKey = '242e39817553bc0d994fc04f72ab39aa';
+        const url = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
+
+        try {
+            const response = await axios.get(url);
+            console.log(response.data)
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching city suggestions", error);
+            return [];
+        }
+    }
+
+    // Function to display suggestions
+    function displaySuggestions(cities) {
+        suggestionsBox.innerHTML = ""; // Clear previous suggestions
+
+        if (cities.length === 0) {
+            suggestionsBox.innerHTML = "<p class='text-light'>No cities found</p>";
+            return;
+        }
+
+        cities.forEach(city => {
+            const cityElement = document.createElement("div");
+            cityElement.classList.add("suggestion-item", "px-2", "border-bottom", "d-flex", "align-items-center");
+            cityElement.style.cursor = "pointer";
+
+            // Create a location icon (use Font Awesome for example)
+            const icon = document.createElement("i");
+            icon.classList.add("fas", "fa-map-marker-alt", "me-3", "fs-4"); // Adjust classes based on your icon library
+            icon.style.color = "grey"; // Icon color set to grey
+
+            // Create a wrapper div for city name and location info
+            const infoWrapper = document.createElement("div");
+            infoWrapper.classList.add("d-flex", "flex-column");
+
+            // Create city name element
+            const cityName = document.createElement("span");
+            cityName.textContent = city.name; // First name of the city
+            cityName.style.color = "white"; // City name color
+
+            // Create state and country container
+            const locationInfo = document.createElement("span");
+            locationInfo.style.color = "grey"; // State and country color
+            locationInfo.textContent = `${city.state}, ${city.country}`; // Add comma and space between state and country
+
+            // Append elements to infoWrapper
+            infoWrapper.appendChild(cityName); // Append city name
+            infoWrapper.appendChild(locationInfo); // Append state and country
+
+            // Append icon and infoWrapper to cityElement
+            cityElement.appendChild(icon); // Append the icon
+            cityElement.appendChild(infoWrapper); // Append the info wrapper
+
+            // Handle city selection
+            cityElement.addEventListener("click", function () {
+                inputField.value = `${city.name}`;
+                suggestionsBox.style.display = "none"; // Hide suggestions after selection
+                fetchWeatherData(city.lat, city.lon)
+            });
+
+            suggestionsBox.appendChild(cityElement);
+        });
+
+
+        // Show suggestionsBox if there are cities to display
+        suggestionsBox.style.display = "block";
+    }
+
+    // Event listener for input field
+    inputField.addEventListener("input", async function () {
+        const query = inputField.value.trim();
+
+        if (query.length > 1) {
+            suggestionsBox.style.display = "none"; // Initially hide suggestions box
+            loader.style.display = "block"; // Show loader when typing starts
+
+            const cities = await fetchCitySuggestions(query);
+            loader.style.display = "none"; // Hide loader once the cities are fetched
+
+            if (cities.length > 0) {
+                displaySuggestions(cities);
+            } else {
+                suggestionsBox.innerHTML = "<p class='text-light'>No cities found</p>";
+                suggestionsBox.style.display = "block"; // Show 'No cities found' message
+            }
+        } else {
+            suggestionsBox.style.display = "none"; // Hide suggestions if input is too short or empty
+            loader.style.display = "none"; // Hide loader if the input is cleared
+        }
+    });
+});
+
+
+document.getElementById("current").addEventListener("click", function () {
+
+    let lat = localStorage.getItem("lat")
+    let lon = localStorage.getItem("lon")
+    fetchWeatherData(lat, lon)
+
+})
