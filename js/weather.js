@@ -1,4 +1,4 @@
-var latLot = {}
+
 const loader = document.getElementById("lds-ring")
 loader.style.display = "none"
 
@@ -11,14 +11,17 @@ if (navigator.geolocation) {
 function successCallback(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    latLot.latitude = latitude
-    latLot.longitude = longitude
-    const your_api = "242e39817553bc0d994fc04f72ab39aa"
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latLot.latitude}&lon=${latLot.longitude}&units=metric&appid=${your_api}`
-    const url_air = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${latLot.latitude}&lon=${latLot.longitude}&appid=${your_api}`
-    const url_forcast = `https://api.openweathermap.org/data/2.5/forecast?lat=${latLot.latitude}&lon=${latLot.longitude}&units=metric&appid=${your_api}`
-    const url_daily = `https://api.openweathermap.org/data/2.5/onecall?lat=${latLot.latitude}&lon=${latLot.longitude}&exclude=current,minutely,daily&appid=${your_api}&units=metric`
+   
+    // Fetch the weather data for the current location
+    fetchWeatherData(latitude,longitude);
+}
 
+
+function fetchWeatherData(latitude, longitude) {
+    const your_api = "242e39817553bc0d994fc04f72ab39aa"
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${your_api}`
+    const url_air = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${your_api}`
+    const url_forcast = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${your_api}`
 
     axios.get(url)
         .then(function (response) {
